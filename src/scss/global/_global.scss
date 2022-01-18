@@ -1,3 +1,49 @@
 html {
   background: $Dark-blue;
 }
+
+.pad {
+  padding-left: 3.5rem;
+  padding-right: 3.5rem;
+
+  @include laptop {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+
+  @include mobile {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+.container {
+  max-width: 1110px;
+  margin: 0 auto;
+}
+
+@keyframes slidetop {
+  from {
+    transform: translateY(50%);
+  }
+}
+@keyframes slidebottom {
+  from {
+    transform: translateY(-10%);
+  }
+}
+@keyframes slideleft {
+  from {
+    transform: translateX(100%);
+  }
+}
+@keyframes scaleout {
+  from {
+    transform: scale(1.1);
+  }
+}
+@keyframes scalein {
+  from {
+    transform: scale(0.9);
+  }
+}

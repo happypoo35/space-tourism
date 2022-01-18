@@ -1,0 +1,145 @@
+.main-technology {
+  margin: 0 auto;
+  width: min(1440px, 100%);
+
+  @include laptop {
+    padding-bottom: 6rem;
+  }
+
+  @include mobile {
+    padding-bottom: 2.5rem;
+  }
+
+  &.pad {
+    padding-right: unset;
+
+    @include laptop {
+      padding-right: 2.5rem;
+    }
+
+    @include mobile {
+      padding-right: 1.5rem;
+    }
+  }
+
+  .container {
+    max-width: 1275px;
+    margin-right: unset;
+  }
+
+  .bg-img {
+    opacity: 0.5;
+    overflow: hidden;
+
+    img {
+      animation: scaleout 0.5s;
+    }
+  }
+
+  .page-header {
+    margin-bottom: 1.625rem;
+  }
+
+  .page-main {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: space-between;
+
+    @include laptop {
+      display: grid;
+      grid-template-columns: 1fr;
+      justify-content: center;
+      gap: 3.5rem;
+    }
+
+    @include mobile {
+      gap: 2.125rem;
+    }
+  }
+
+  .page-content {
+    display: flex;
+    gap: 5rem;
+
+    @include laptop {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    @include tablet {
+      gap: 2.75rem;
+    }
+
+    @include mobile {
+      gap: 1.625rem;
+    }
+  }
+
+  .slide-btns {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    @include laptop {
+      flex-direction: unset;
+    }
+
+    @include tablet {
+      gap: 1rem;
+    }
+  }
+
+  .page-text {
+    max-width: 470px;
+
+    @include laptop {
+      text-align: center;
+    }
+
+    .nav-text {
+      color: $Light-blue;
+      margin-bottom: 0.75rem;
+
+      @include laptop {
+        margin-bottom: 1rem;
+      }
+
+      @include mobile {
+        margin-bottom: 0.625rem;
+      }
+    }
+
+    .h3 {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .page-img {
+    width: 515px;
+    height: 527px;
+    animation: slideleft 0.3s;
+
+    @include laptop {
+      position: relative;
+      grid-row: 1;
+      width: 100%;
+      height: 310px;
+      display: flex;
+      justify-content: center;
+    }
+
+    @include mobile {
+      height: 170px;
+    }
+
+    img {
+      @include laptop {
+        object-fit: cover;
+        position: absolute;
+        height: 100%;
+        width: 100vw;
+      }
+    }
+  }
+}

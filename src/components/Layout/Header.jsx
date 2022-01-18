@@ -1,5 +1,8 @@
-import { ReactComponent as Logo } from "assets/shared/logo.svg";
-import { Link } from "react-router-dom";
+import useMenu from "hooks/useMenu";
+import useWindowSize from "hooks/useWindowSize";
+import { ReactComponent as Logo } from "icons/logo.svg";
+import { useRef } from "react";
+import { Link, NavLink } from "react-router-dom";
 
 const navLinks = [
   {
@@ -25,17 +28,38 @@ const navLinks = [
 ];
 
 const Header = () => {
+  const { laptop, mobile } = useWindowSize();
+  const navRef = useRef(null);
+  const showMenu = useMenu(navRef);
+
   return (
     <header className="layout-header">
-      <Link to="/" aria-label="Space tourism logo/home page">
-        <Logo />
-      </Link>
-      <nav className="header-nav">
+      <div className="logo">
+        <Link to="/" className="logo" aria-label="Space tourism logo/home page">
+          <Logo />
+        </Link>
+        <div className="line"></div>
+      </div>
+      <button
+        className={showMenu.value ? "hamburger active" : "hamburger"}
+        onClick={showMenu.toggle}
+      >
+        <div className="hamburger-icon"></div>
+      </button>
+      <nav
+        className={showMenu.value ? "header-nav active" : "header-nav"}
+        ref={navRef}
+      >
         {navLinks.map((el) => (
-          <Link to={el.url} key={el.num}>
-            <strong>{el.num}</strong>
+          <NavLink
+            to={el.url}
+            className="nav-text"
+            onClick={showMenu.off}
+            key={el.num}
+          >
+            {(!laptop || mobile) && <strong>{el.num}</strong>}
             {el.name}
-          </Link>
+          </NavLink>
         ))}
       </nav>
     </header>

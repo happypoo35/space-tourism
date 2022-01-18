@@ -1,0 +1,184 @@
+.layout-header {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  align-items: center;
+  padding-top: 2rem;
+  padding-left: 3.5rem;
+  transition: 0.15s;
+
+  @include laptop {
+    padding-top: unset;
+    padding-left: 2.5rem;
+  }
+
+  @include mobile {
+    padding: 1.5rem 1.5rem 0;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.logo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+
+  @include mobile {
+    transform: scale(85%);
+  }
+
+  .line {
+    height: 1px;
+    width: 100%;
+    background: rgba(white, 0.25);
+    transform: translateX(2rem);
+    z-index: 1;
+
+    @include laptop {
+      display: none;
+    }
+  }
+}
+
+.header-nav {
+  display: flex;
+  gap: 3.125rem;
+  background: rgba(white, 0.04);
+  padding-left: 7.625rem;
+  padding-right: 3rem;
+  backdrop-filter: blur(81.5485px);
+  transition: 0.15s;
+
+  @include laptop {
+    padding: 0 3rem;
+  }
+
+  @include tablet {
+    gap: 2.25rem;
+  }
+
+  @include mobile {
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    top: 0;
+    width: min(254px, 100%);
+    height: 100%;
+    flex-direction: column;
+    gap: 2rem;
+    padding-top: 118px;
+    padding-left: 2rem;
+    padding-right: unset;
+    transform: translateX(100%);
+    opacity: 0;
+    transition: transform 0.15s;
+
+    &.active {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  .nav-text {
+    position: relative;
+    display: flex;
+    gap: 0.75rem;
+    padding: 2.375rem 0;
+
+    @include mobile {
+      padding: unset;
+      height: 2rem;
+      align-items: center;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      display: block;
+      height: 3px;
+      width: 100%;
+      background: white;
+      opacity: 0;
+      transform: scaleX(20%);
+      transition: 0.15s;
+
+      @include mobile {
+        width: 4px;
+        height: 100%;
+        bottom: unset;
+        right: 0;
+      }
+    }
+
+    &:hover {
+      &::after {
+        opacity: 0.5;
+        transform: scaleX(100%);
+      }
+    }
+
+    &.active {
+      &::after {
+        opacity: 1;
+        transform: scaleX(100%);
+      }
+    }
+  }
+}
+
+.hamburger {
+  z-index: 2;
+  height: 1.75rem;
+  width: 1.75rem;
+  display: none;
+
+  @include mobile {
+    display: flex;
+    align-items: center;
+  }
+
+  &-icon {
+    position: relative;
+    width: 1.5rem;
+    height: 3px;
+    background: $Light-blue;
+    transition: 0.2s;
+    pointer-events: none;
+
+    &::before,
+    &::after {
+      content: "";
+      left: 0;
+      position: absolute;
+      width: 100%;
+      height: 3px;
+      background: $Light-blue;
+    }
+
+    &::before {
+      bottom: 9px;
+    }
+
+    &::after {
+      top: 9px;
+    }
+  }
+
+  &.active {
+    .hamburger-icon {
+      transform: rotate(45deg);
+
+      &::before {
+        bottom: 0;
+        transform: rotate(90deg);
+      }
+
+      &::after {
+        top: 0;
+        opacity: 0;
+      }
+    }
+  }
+}

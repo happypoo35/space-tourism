@@ -1,4 +1,18 @@
 @import "./global/vars";
+@import "./global/mixins";
 @import "./global/reset";
 @import "./global/typography";
 @import "./global/global";
+
+@import "./components/buttons";
+
+@import "./components/layout/header";
+@import "./components/layout/layout";
+
+@import "./components/home/home";
+
+@import "./components/destination/destination";
+
+@import "./components/crew/crew";
+
+@import "./components/technology/technology";

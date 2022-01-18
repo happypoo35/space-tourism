@@ -1,0 +1,166 @@
+.main-destination {
+  padding-bottom: 4rem;
+
+  .bg-img {
+    overflow: hidden;
+
+    img {
+      animation: scaleout 0.5s;
+    }
+  }
+
+  .page-header {
+    margin-bottom: 4rem;
+  }
+
+  .page-main {
+    min-height: 472px;
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+
+    @include laptop {
+      flex-direction: column;
+      align-items: center;
+      gap: 3.25rem;
+    }
+
+    @include mobile {
+      gap: 1.625rem;
+    }
+  }
+
+  .page-img {
+    margin-left: 4rem;
+    align-self: flex-end;
+
+    @include laptop {
+      align-self: unset;
+      margin-left: unset;
+      width: 300px;
+      height: 300px;
+    }
+
+    @include mobile {
+      width: 170px;
+      height: 170px;
+    }
+
+    img {
+      animation: 0.3s scalein ease-in;
+      width: 100%;
+    }
+  }
+
+  .page-content {
+    display: flex;
+    flex-direction: column;
+    max-width: 445px;
+
+    @include laptop {
+      align-items: center;
+      text-align: center;
+      max-width: 540px;
+    }
+  }
+
+  .page-nav {
+    display: flex;
+    gap: 2.25rem;
+    margin-bottom: 2.25rem;
+
+    @include laptop {
+      margin-bottom: 2rem;
+    }
+
+    @include mobile {
+      gap: 1.625rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .nav-text {
+      position: relative;
+      padding-bottom: 0.75rem;
+      color: $Light-blue;
+
+      @include mobile {
+        font-size: 0.875rem;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        display: block;
+        height: 3px;
+        width: 100%;
+        background: white;
+        opacity: 0;
+        transform: scaleX(20%);
+        transition: 0.15s;
+      }
+
+      &:hover {
+        &::after {
+          opacity: 0.5;
+          transform: scaleX(100%);
+        }
+      }
+
+      &.active {
+        color: white;
+
+        &::after {
+          opacity: 1;
+          transform: scaleX(100%);
+        }
+      }
+    }
+  }
+
+  .page-text {
+    flex: 1;
+    margin-bottom: 3rem;
+
+    @include mobile {
+      margin-bottom: 2rem;
+    }
+
+    .h2 {
+      margin-bottom: 0.875rem;
+
+      @include laptop {
+        margin-bottom: 0.5rem;
+      }
+
+      @include mobile {
+        margin-bottom: 0.125rem;
+      }
+    }
+  }
+
+  .stats {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: 1px solid hsla(231, 15%, 26%, 1);
+    padding-top: 1.75rem;
+
+    @include mobile {
+      padding-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    &-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+
+      .sh2 {
+        color: $Light-blue;
+      }
+    }
+  }
+}

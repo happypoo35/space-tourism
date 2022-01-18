@@ -1,5 +1,4 @@
-import { Crew, Destination, Home, Layout } from "components";
-import Technology from "components/Technology";
+import { Crew, Destination, Home, Technology, Layout } from "components";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
